@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>300x300</title>
+        <meta name="ad.size" content="width=300,height=300">
+        <script type="text/javascript">
+            var clickTag = "http://www.example.com";
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			#clickLayer{
+				width: 300px;
+				height: 300px;
+				position: absolute;
+                top: 0;
+                left: 0;
+				cursor: pointer;
+			}
+			#o-container{
+				width: 300px;
+				height: 300px;
+				overflow: hidden;
+				position: relative;
+			}
+
+            .bg1 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+
+            .kasi {
+                position: absolute;
+                top: -63px;
+                left: -200px;
+            }
+            .kasi-bounce{
+			  -moz-animation: bounce 1s infinite;
+			  -webkit-animation: bounce 1s infinite;
+			  animation: bounce 1s infinite;
+			  -webkit-animation-iteration-count: 14;
+			  -moz-animation-iteration-count: 14;
+			  animation-delay: 1s;
+			  -webkit-animation-delay: 1s;
+			}
+			@-moz-keyframes bounce {
+				0%, 100% {
+			  		-moz-transform: translateY(0);
+			  	}
+			 	50% {
+					-moz-transform: translateY(7px);
+				}
+			}
+			@-webkit-keyframes bounce {
+				0%, 100% {
+					-webkit-transform: translateY(0);
+				}
+				50% {
+					-webkit-transform: translateY(7px);
+				}
+			}
+			@keyframes bounce {
+				0%, 100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(7px);
+				}
+			}
+
+            .txt1 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transform: scale(0);
+            }
+
+            .tuote1 {
+                position: absolute;
+                bottom: -200px;
+                right: 87px;
+            }
+
+            .badge1 {
+                position: absolute;
+                bottom: 79px;
+                right: 55px;
+                transform: scale(0);
+            }
+
+            /* Toinen näkymä */
+
+            .txt2 {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transform: scale(0);
+            }
+
+            .txt1animation {
+            -webkit-animation: scaling 1.2s 1 alternate;
+            animation: scaling 1.2s 1 alternate;
+            transform: scale(1.0);
+            }
+            @-webkit-keyframes scaling {
+                0% { -webkit-transform: scale(0); }
+                100% { -webkit-transform: scale(1.0); }
+            }
+            @keyframes scaling{
+                0% { transform: scale(0); }
+                100% { transform: scale(1.0); }
+            }
+
+            .txt2animation {
+            -webkit-animation: scaling2 0.8s 1 alternate;
+            animation: scaling2 0.8s 1 alternate;
+            transform: scale(0);
+            }
+            @-webkit-keyframes scaling2 {
+                0% { -webkit-transform: scale(1.0); }
+                100% { -webkit-transform: scale(0); }
+            }
+            @keyframes scaling2{
+                0% { transform: scale(1.0); }
+                100% { transform: scale(0); }
+            }
+
+            .rotate-badge1{
+            -moz-animation: rotate-badge1 1s infinite;
+            -webkit-animation: rotate-badge1 1s infinite;
+            animation: rotate-badge1 1s infinite;
+            transform: scale(1);
+            -webkit-animation-iteration-count: 1;
+            -moz-animation-iteration-count: 1;
+            }
+            @-webkit-keyframes rotate-badge1 {
+                0%   {-webkit-transform: rotate(-360deg) scale(0);}
+                100% {-webkit-transform: rotate(0deg) scale(1.0);}
+            }
+
+            @-moz-keyframes rotate-badge1 {
+                0%   {-moz-transform: rotate(-360deg) scale(0);}
+                    100% {-moz-transform: rotate(0deg) scale(1.0);}
+            }
+            @keyframes rotate-badge1 {
+                0%   {transform: rotate(-360deg) scale(0);}
+                100% {transform: rotate(0deg) scale(1.0);}
+            }
+
+            .rotate-badge2{
+            -moz-animation: rotate-badge2 1s infinite;
+            -webkit-animation: rotate-badge2 1s infinite;
+            animation: rotate-badge2 1s infinite;
+            transform: scale(0);
+            -webkit-animation-iteration-count: 1;
+            -moz-animation-iteration-count: 1;
+            }
+            @-webkit-keyframes rotate-badge2 {
+                0%   {-webkit-transform: rotate(-360deg) scale(1.0);}
+                100% {-webkit-transform: rotate(0deg) scale(0);}
+            }
+
+            @-moz-keyframes rotate-badge2 {
+                0%   {-moz-transform: rotate(-360deg) scale(1.0);}
+                    100% {-moz-transform: rotate(0deg) scale(0);}
+            }
+            @keyframes rotate-badge2 {
+                0%   {transform: rotate(-360deg) scale(1.0);}
+                100% {transform: rotate(0deg) scale(0);}
+            }
+
+            .opacity {
+                opacity: 0;
+            }
+		</style>
+    </head>
+    <body>
+		<div id="o-container">
+            <img src="bg.jpg" alt="" class="bg1">
+            <img src="kasi.png" alt="" class="kasi">
+            <img src="txt1.png" alt="" class="txt1">
+            <!-- Toinen näkymä -->
+            <img src="txt2.png" alt="" class="txt2">
+            <img src="tuote.png" alt="" class="tuote1">
+            <img src="badge.png" alt="" class="badge1">
+			<a href="javascript:window.open(window.clickTag)" id="clickLayer"></a>
+        </div>
+        <script>
+            var stopLoop = 0;
+
+            function ointro() {
+                $("img.txt1").toggleClass( "txt1animation" );
+                $(".tuote1").animate({ bottom: -10 }, 500, 'swing', function() {
+                    $(".tuote1").animate({ bottom: -30 }, 300, 'swing');
+                    $("img.kasi").toggleClass("kasi-bounce");
+                    $("img.badge1").toggleClass("rotate-badge1");
+                    $(".kasi").animate({ left: -103 }, 300, 'swing', function() {
+                        setTimeout(osecond, 2300);
+                    });
+                });
+            }
+
+            function osecond() {
+                $("img.txt1").toggleClass( "txt1animation" );
+                $("img.txt1").toggleClass( "txt2animation" );
+                $("img.badge1").toggleClass("rotate-badge1");
+                $("img.badge1").toggleClass("rotate-badge2");
+                $(".kasi").animate({ opacity: 1 }, function() {
+                    setTimeout(othird, 500);
+                });
+            }
+
+            function othird() {
+                $("img.txt2").toggleClass("txt1animation");
+                $("img.badge1").toggleClass("rotate-badge2");
+                $("img.badge1").toggleClass("rotate-badge1");
+                $(".kasi").animate({ opacity: 1 }, function() {
+                    if(stopLoop == 0) {
+                        setTimeout(ofourth, 2300);
+                    }
+                });
+            }
+
+            function ofourth() {
+                $("img.txt2").toggleClass( "txt1animation" );
+                $("img.txt2").toggleClass( "txt2animation" );
+                $("img.badge1").toggleClass("rotate-badge1");
+                $("img.badge1").toggleClass("rotate-badge2");
+                $(".kasi").animate({ opacity: 1 }, function() {
+                    setTimeout(ofifth, 500);
+                });
+            }
+
+            function ofifth() {
+                $("img.txt1").toggleClass( "txt2animation" );
+                $("img.txt1").toggleClass( "txt1animation" );
+                $("img.badge1").toggleClass("rotate-badge2");
+                $("img.badge1").toggleClass("rotate-badge1");
+                $(".kasi").animate({ opacity: 1 }, function() {
+                    setTimeout(osixth, 2300);
+                });
+            }
+
+            function osixth() {
+                $("img.txt1").toggleClass( "txt1animation" );
+                $("img.txt1").toggleClass( "txt2animation" );
+                $("img.badge1").toggleClass("rotate-badge1");
+                $("img.badge1").toggleClass("rotate-badge2");
+                $(".kasi").animate({ opacity: 1 }, function() {
+                    setTimeout(olast, 500);
+                });
+            }
+
+            function olast() {
+                $("img.txt2").toggleClass( "txt2animation" );
+                $("img.txt2").toggleClass("txt1animation");
+                $("img.badge1").toggleClass("rotate-badge2");
+                $("img.badge1").toggleClass("rotate-badge1");
+                $(".kasi").animate({ opacity: 1 });
+            }
+
+
+            function stopAnim() {
+                stopLoop = 1;
+            }
+
+            window.onload = function() {
+                setTimeout(ointro, 100);
+                setTimeout(stopAnim, 27000);
+            }
+        </script>
+    </body>
+</html>

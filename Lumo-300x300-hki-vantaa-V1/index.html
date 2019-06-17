@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>300x300</title>
+        <script>
+            document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+        </script>
+             <script>
+                    var isIE = false;
+                    if(!!window.navigator.userAgent.match(/MSIE|Trident/)) {
+                    isIE = true;
+                    document.querySelector('body').classList.add('ie');
+                }
+            </script>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #clickLayer{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                cursor: pointer;
+            }
+            .container {
+                width:300px;
+                height:300px;
+                position: relative;
+                background: url(bg.jpg) 0 0 no-repeat;
+            }
+            .box {
+                position: absolute;
+                width: 285px;
+                height: 283px;
+                position: absolute;
+                left: 8px;
+                top: 8px;
+                overflow: hidden;
+            }
+            .flipbox-wrapper {
+                perspective: 800px;
+                perspective-origin: 50% 50%;
+                -webkit-perspective: 10000px;
+                -webkit-perspective-origin: 50% 50%;
+                -moz-perspective: 800px;
+                -moz-perspective-origin: 50% 50%;
+            }
+            .flipbox-wrapper .flipbox-box {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transform-style: preserve-3d;
+                transition-property: transform;
+                -webkit-transform-style: preserve-3d;
+                -webkit-transition-property: transform;
+                -moz-transform-style: preserve-3d;
+                -moz-transition-property: transform;
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side.flipbox-front {
+                transform: translateZ(0);
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side.flipbox-left {
+                transform-origin: center left;
+                -webkit-transform-origin: center left;
+                -moz-transform-origin: center left;
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side.flipbox-right {
+                transform-origin: top right;
+                -webkit-transform-origin: top right;
+                -moz-transform-origin: top right;
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side.flipbox-top {
+                transform-origin: top center;
+                -webkit-transform-origin: top center;
+                -moz-transform-origin: top center;
+            }
+            .flipbox-wrapper .flipbox-box .flipbox-side.flipbox-bottom {
+                transform-origin: bottom center;
+                -webkit-transform-origin: bottom center;
+                -moz-transform-origin: bottom center;
+            }
+            .slide{
+                position: absolute;
+                width: 285px;
+                height: 283px;
+                background: url('l-1.jpg') no-repeat 0 0;
+            }
+            .slide2{
+                position: absolute;
+                width: 285px;
+                height: 283px;
+                background: url('l-2.jpg') no-repeat 0 0;
+            }
+            .logo {
+                position: absolute;
+                top: -8px;
+                left: -6px;
+            }
+           .cta {
+           	position: absolute;
+            left: 11px;
+            top: 244px;
+            width: 181px;
+            height: 25px;
+            background: #ef5183 url('cta.png') no-repeat 0 0;
+           }
+           .cta-arr {
+               position: absolute;
+               top: 0px;
+               left: 0px;
+                width: 181px;
+                height: 25px;
+               background: url('cta-arr.png') no-repeat 0 0;
+           }
+           .arr-bounce {
+            -moz-animation: bounce 1.5s infinite;
+            -webkit-animation: bounce 1.5s infinite;
+            animation: bounce 1.5s infinite;
+            -webkit-animation-iteration-count: 14;
+            -moz-animation-iteration-count: 14;
+        }
+            @-moz-keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+            -moz-transform: translateX(0);
+            }
+            40% {
+            -moz-transform: translateX(3px);
+            }
+            60% {
+            -moz-transform: translateX(5px);
+            }
+            }
+            @-webkit-keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+            -webkit-transform: translateX(0);
+            }
+            40% {
+            -webkit-transform: translateX(3px);
+            }
+            60% {
+            -webkit-transform: translateX(5px);
+            }
+            }
+            @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+            transform: translateX(0);
+            }
+            40% {
+            transform: translateX(3px);
+            }
+            60% {
+            transform: translateX(5px);
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box" id="box1">
+            	<div class="slide">
+                    <div class="cta cta1">
+                        <div class="cta-arr arr-bounce"></div>
+                    </div>
+                    <img src="logo1.png" alt="" class="logo">
+                </div>
+                <div class="slide2">
+                    <div class="cta cta1">
+                        <div class="cta-arr arr-bounce"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="clickLayer"></div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="src/jquery.flipbox.js"></script>
+
+        <script>          
+            $('#box1').flipbox({
+                vertical: false,
+                autoplay: false,
+                autoplayReverse: false,
+            });
+
+            var count = 0;
+            var max = 10;
+            var delay = 2500;
+            function prev() {
+                if(count >= max) {
+                    clearInterval(interval);
+                } else {
+                    $('#box1').flipbox('prev', true);
+                    count++;
+                }
+            } 
+            var interval = setInterval(prev, delay);
+        </script>
+        <script>
+            var clickArea = document.getElementById('clickLayer');
+           
+            clickTAGvalue = dhtml.getVar('clickTAG', 'http://www.example.com');
+            landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+           
+            clickArea.onclick = function() {
+            window.open(clickTAGvalue,landingpagetarget);
+            }
+           </script>
+    </body>
+</html>

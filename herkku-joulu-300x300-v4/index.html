@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="ad.size" content="width=300,height=300">
+  <title>300x300</title>
+  <script type="text/javascript"> var clickTag = "https://www.example.com/"; </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #clicklayer {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    #h-container {
+      width: 300px;
+      height: 300px;
+      background: url("bg.jpg") no-repeat 0 0;
+      position: absolute;
+      overflow: hidden;
+    }
+
+    .n1-txt {
+      position: absolute;
+      top: 15px;
+      left: -300px;
+    }
+
+    .n2-txt {
+      position: absolute;
+      top: 15px;
+      left: -300px;
+    }
+
+    .cta {
+      position: absolute;
+      top: 219px;
+      left: -100px;
+    }
+
+    .opacity{
+      opacity: 0;
+    }
+
+    /* PULSE ANIM */
+    .arr-bounce {
+      -moz-animation: pulse 2s infinite;
+      -webkit-animation: pulse 2s infinite;
+      animation: pulse 2s infinite;
+      -webkit-animation-iteration-count: 12;
+      -moz-animation-iteration-count: 12;
+      animation-iteration-count: 12;
+      animation-delay: 1s;
+      -webkit-animation-delay: 1s;
+      transform: scale(1.0);
+      }
+      @-moz-keyframes pulse {
+      0%, 20%, 50%, 80%, 100% {
+          -moz-transform: scale(1.0);
+        }
+        40% {
+        -moz-transform: scale(1.05);
+      }
+      60% {
+        -moz-transform: scale(1.1);
+      }
+      }
+      @-webkit-keyframes pulse {
+      0%, 20%, 50%, 80%, 100% {
+        -webkit-transform: scale(1.0);
+      }
+      40% {
+        -webkit-transform: scale(1.05);
+      }
+      60% {
+        -webkit-transform: scale(1.1);
+      }
+      }
+      @keyframes pulse {
+      0%, 20%, 50%, 80%, 100% {
+        transform: scale(1.0);
+      }
+      40% {
+        transform: scale(1.05);
+      }
+      60% {
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="h-container">
+    <img src="cta.png" class="cta opacity arr-bounce">
+    <img src="n1-txt.png" class="n1-txt opacity">
+    <img src="n2-txt.png" class="n2-txt opacity">
+    <a href="javascript:window.open(window.clickTag)" id="clicklayer">
+  </div>
+
+  <script>
+    var stopLoop = 0;
+      function hintro() {
+        $("#h-container .n1-txt").animate({ opacity: 1, left: 31 }, 300, 'swing');
+        $("#h-container .n1-txt").animate({ opacity: 1, left: 21 }, 100, 'swing');
+        $("#h-container .cta").delay(300).animate({ opacity: 1, left: 27 }, 300, 'swing');
+        $("#h-container .cta").animate({ opacity: 1, left: 17 }, 100, 'swing');
+        $("#h-container .n1-txt").delay(2300).animate({ opacity: 1, left: 51 }, 400, 'swing');
+        $("#h-container .n1-txt").animate({ opacity: 1, left: -300 }, 200, 'swing', function() {
+          setTimeout(hsecond, 200);
+        });
+      }
+      function hsecond() {
+        $("#h-container .n2-txt").animate({ opacity: 1, left: 31}, 300, 'swing');
+        $("#h-container .n2-txt").animate({ opacity: 1, left: 21}, 100, 'swing');
+        $("#h-container .n2-txt").delay(2300).animate({ opacity: 1, left: 51 }, 400, 'swing');
+        $("#h-container .n2-txt").animate({ opacity: 1, left: -300 }, 200, 'swing', function() {
+          setTimeout(hthird, 200);
+        });
+      }
+      function hthird() {
+        $("#h-container .n1-txt").animate({ opacity: 1, left: 31 }, 300, 'swing');
+        $("#h-container .n1-txt").animate({ opacity: 1, left: 21 }, 100, 'swing');
+        $("#h-container .cta").animate({ opacity: 1, left: 17 }, 100, 'swing');
+        $("#h-container .n1-txt").delay(2300).animate({ opacity: 1, left: 51 }, 400, 'swing');
+        $("#h-container .n1-txt").animate({ opacity: 1, left: -300 }, 200, 'swing', function() {
+          if(stopLoop==0){
+            setTimeout(hsecond, 200);
+          } else {
+            setTimeout(hfourth, 200);
+          }
+        });
+      }
+      function hfourth() {
+        $("#h-container .n2-txt").animate({ opacity: 1, left: 21 });
+      }
+      function stopAnim() {
+        stopLoop = 1;
+      }
+      window.onload = function() {
+        setTimeout(hintro, 100);
+        setTimeout(stopAnim, 24000);
+      }
+  </script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+      300x300
+    </title>
+    <script>
+      document.write('<script src="'+ (window.API_URL || 'https://s1.adform.net/banners/scripts/rmb/Adform.DHTML.js?bv='+ Math.random()) +'"><\/script>');
+    </script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <style>
+      #container {
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+        background: url('bg.jpg');
+      }
+
+      #clickLayer {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        cursor: pointer;
+      }
+
+      .txt-top {
+        position: absolute;
+        height: 40px;
+        width: 1700px;
+        top: 0px;
+        left: 0px;
+        background: #000000;
+      }
+
+      .txt-bot {
+        position: absolute;
+        height: 40px;
+        width: 1700px;
+        bottom: 0px;
+        left: 0px;
+        background: #000000;
+      }
+
+      .fox-top {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+      }
+
+      .fox-top2 {
+          position: absolute;
+          top: 0px;
+          left: 190px;
+      }
+
+      .fox-top3 {
+          position: absolute;
+          top: 0px;
+          left: 380px;
+      }
+
+      .fox-top4 {
+          position: absolute;
+          top: 0px;
+          left: 570px;
+      }
+
+      .fox-top5 {
+          position: absolute;
+          top: 0px;
+          left: 760px;
+      }
+
+      .fox-top6 {
+          position: absolute;
+          top: 0px;
+          left: 950px;
+      }
+
+      .fox-top7 {
+          position: absolute;
+          top: 0px;
+          left: 1140px;
+      }
+
+      .fox-top8 {
+          position: absolute;
+          top: 0px;
+          left: 1330px;
+      }
+
+      .fox-bot {
+          position: absolute;
+          bottom: 0px;
+          left: 0px  
+      }
+
+      .fox-bot2 {
+          position: absolute;
+          bottom: 0px;
+          left: 190px  
+      }
+
+      .fox-bot3 {
+          position: absolute;
+          top: 0px;
+          left: 380px;
+      }
+
+      .fox-bot4 {
+          position: absolute;
+          top: 0px;
+          left: 570px;
+      }
+
+      .fox-bot5 {
+          position: absolute;
+          top: 0px;
+          left: 760px;
+      }
+
+      .fox-bot6 {
+          position: absolute;
+          top: 0px;
+          left: 950px;
+      }
+
+      .fox-bot7 {
+          position: absolute;
+          top: 0px;
+          left: 1140px;
+      }
+
+      .fox-bot8 {
+          position: absolute;
+          top: 0px;
+          left: 1330px;
+      }
+
+
+      .txt {
+          position: absolute;
+          top: 0px;
+          left: 0px;
+      }
+
+      .tolkki1 {
+          position: absolute;
+          top: 20px;
+          left: -25px;
+      }
+
+      .tolkki2 {
+          position: absolute;
+          top: 20px;
+          left: 78px;
+      }
+
+      .tolkki3 {
+          position: absolute;
+          top: 20px;
+          left: 181px;
+      }
+
+      .arr-bounce {
+        -moz-animation: bounce 2s infinite;
+        -webkit-animation: bounce 2s infinite;
+        animation: bounce 2s infinite;
+        -webkit-animation-iteration-count: 14;
+        -moz-animation-iteration-count: 14;
+        animation-delay: 1s;
+        -webkit-animation-delay: 1s;
+      }
+      @-moz-keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          -moz-transform: translateX(0);
+        }
+        40% {
+          -moz-transform: translateX(3px);
+        }
+        60% {
+          -moz-transform: translateX(5px);
+        }
+      }
+      @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+          transform: translateX(0);
+        }
+        40% {
+          transform: translateX(3px);
+        }
+        60% {
+          transform: translateX(5px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="container">
+        <div class="txt-top">
+            <img src="fox-txt.png" alt="" class="fox-top">
+            <img src="fox-txt.png" alt="" class="fox-top2">
+            <img src="fox-txt.png" alt="" class="fox-top3">
+            <img src="fox-txt.png" alt="" class="fox-top4">
+            <img src="fox-txt.png" alt="" class="fox-top5">
+            <img src="fox-txt.png" alt="" class="fox-top6">
+            <img src="fox-txt.png" alt="" class="fox-top7">
+            <img src="fox-txt.png" alt="" class="fox-top8">
+        </div>
+        <div class="txt-bot">
+            <img src="fox-txt.png" alt="" class="fox-bot">
+            <img src="fox-txt.png" alt="" class="fox-bot2">
+            <img src="fox-txt.png" alt="" class="fox-bot3">
+            <img src="fox-txt.png" alt="" class="fox-bot4">
+            <img src="fox-txt.png" alt="" class="fox-bot5">
+            <img src="fox-txt.png" alt="" class="fox-bot6">
+            <img src="fox-txt.png" alt="" class="fox-bot7">
+            <img src="fox-txt.png" alt="" class="fox-bot8">
+        </div>
+        <img src="txt.png" alt="" class="txt">
+        <img src="tolkki.png" alt="" class="tolkki1">
+        <img src="tolkki.png" alt="" class="tolkki2">
+        <img src="tolkki.png" alt="" class="tolkki3">
+      <div id="clickLayer"></div>
+    </div>
+
+    <script>
+        var stopLoop = 0;
+
+        function sprite() {
+            $(".txt-top").animate({ left: -1100 }, 29000, 'linear');
+            $(".txt-bot").animate({ left: -1100 }, 29000, 'linear');
+        }
+
+        function tolkit() {
+            $(".tolkki1").animate({ left: -400 }, 400, 'easeInCubic');
+            $(".tolkki2").delay(150).animate({ left: -322}, 400, 'easeInCubic');
+            $(".tolkki3").delay(300).animate({ left: -219 }, 400, 'easeInCubic', function() {
+                setTimeout(tolkitopacity, 2000)
+            });
+        }
+
+        function tolkitopacity() {
+            $(".tolkki1").animate({ opacity: 0 }, 100);
+            $(".tolkki2").animate({ opacity: 0 }, 100);
+            $(".tolkki3").animate({ opacity: 0 }, 100);
+            $(".tolkki1").animate({ left: 400 }, 100);
+            $(".tolkki2").animate({ left: 478 }, 100);
+            $(".tolkki3").animate({ left: 581 }, 100);
+            $(".tolkki1").animate({ opacity: 1 }, 100);
+            $(".tolkki2").animate({ opacity: 1 }, 100);
+            $(".tolkki3").animate({ opacity: 1 }, 100);
+            $(".tolkki1").animate({ left: -25 }, 500, 'easeOutCubic');
+            $(".tolkki2").delay(150).animate({ left: 78 }, 500, 'easeOutCubic');
+            $(".tolkki3").delay(300).animate({ left: 181 }, 500, 'easeOutCubic', function() {
+                if (stopLoop == 0) {
+                    setTimeout(tolkit, 2000);
+                }
+            });
+        }
+
+        function stopAnim() {
+            stopLoop = 1;
+        }
+
+        window.onload = function() {
+            setTimeout(sprite, 100);
+            setTimeout(tolkit, 1000);
+            setTimeout(stopAnim, 27000);
+        }
+    </script>
+    <script>
+     var clickArea = document.getElementById('clickLayer');
+
+     clickTAGvalue = dhtml.getVar('clickTAG', 'http://www.example.com');
+     landingpagetarget = dhtml.getVar('landingPageTarget', '_blank');
+
+     clickArea.onclick = function() {
+     window.open(clickTAGvalue,landingpagetarget);
+     }
+    </script>
+        <script
+        src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+        crossorigin="anonymous">
+      </script>
+  </body>
+</html>

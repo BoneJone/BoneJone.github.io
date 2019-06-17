@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>300x300</title>
+    <meta name="ad.size" content="width=300,height=300">
+    <script type="text/javascript">
+        var clickTag = "https://www.valio.fi/tuotteet/valio-profeel/";
+    </script>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        #clickLayer {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          cursor: pointer;
+        }
+        #v-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: url('bg.jpg') no-repeat 0 0;
+        }
+        .v-logo {
+          position: absolute;
+          top: 15px;
+          left: 20px;
+        }
+        .v-kasi {
+            position: absolute;
+            top: -276px;
+            left: 24px;
+        }
+		.kasi-loop{
+		  -moz-animation: kasianim 10s infinite;
+		  -webkit-animation: kasianim 10s infinite;
+		  animation: kasianim 10s infinite;
+		  -webkit-animation-iteration-count: 3;
+		  -moz-animation-iteration-count: 3;
+		}
+		@-moz-keyframes kasianim {
+			0%,55% {
+		  		-moz-transform: translateY(0);
+		  	}
+		  	20%{
+				-moz-transform: translateY(276px);
+		 	}
+		  	30%,50%{
+				-moz-transform: translateY(155px);
+		 	}
+		}
+		@-webkit-keyframes kasianim {
+			0%,55% {
+				-webkit-transform: translateY(0);
+			}
+			20%{
+				-webkit-transform: translateY(276px);
+			}
+			30%,50%{
+				-webkit-transform: translateY(155px);
+			}
+		}
+		@keyframes kasianim {
+			0%,55%{
+				transform: translateY(0);
+			}
+			20%{
+				transform: translateY(276px);
+			}
+			30%,50%{
+				transform: translateY(155px);
+			}
+		}
+        .v-txt {
+            position: absolute;
+            top: 118px;
+            left: 27px;
+        }
+		.txt-loop{
+            -moz-animation: txtanim 10s infinite;
+            -webkit-animation: txtanim 10s infinite;
+            animation: txtanim 10s infinite;
+            -webkit-animation-iteration-count: 3;
+            -moz-animation-iteration-count: 3;
+            -moz-transform: scale(0);
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            /*animation-delay: 5s;
+            -webkit-animation-delay: 5s;*/
+		}
+		@-moz-keyframes txtanim {
+			0%, 20%, 55%, 100% {
+		  		-moz-transform: scale(0);
+		  	}
+		  	28%,50% {
+				-moz-transform: scale(1);
+		 	}
+		}
+		@-webkit-keyframes txtanim {
+			0%, 20%, 55%, 100% {
+				-webkit-transform: scale(0);
+			}
+			28%,50%{
+				-webkit-transform: scale(1);
+			}
+		}
+		@keyframes txtanim {
+			0%, 20%, 55%, 100% {
+				transform: scale(0);
+			}
+			28%,50% {
+				transform: scale(1);
+			}
+		}
+        .v-jauhe {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+		.jauhe-loop{
+            -moz-animation: jauheanim 10s infinite;
+            -webkit-animation: jauheanim 10s infinite;
+            animation: jauheanim 10s infinite;
+            -webkit-animation-iteration-count: 3;
+            -moz-animation-iteration-count: 3;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+		}
+		@-moz-keyframes jauheanim {
+			0%, 50%, 100% {
+		  		-moz-transform: scale(0);
+		  	}
+		  	55%,96% {
+				-moz-transform: scale(1);
+		 	}
+		}
+		@-webkit-keyframes jauheanim {
+			0%, 50%, 100% {
+				-webkit-transform: scale(0);
+			}
+			55%,96%{
+				-webkit-transform: scale(1);
+			}
+		}
+		@keyframes jauheanim {
+			0%, 50%, 100% {
+				transform: scale(0);
+			}
+			55%,96% {
+				transform: scale(1);
+			}
+		}
+        .v-suklaa {
+          position: absolute;
+          top: 114px;
+          left: 42px;
+        }
+        .v-kookos {
+          position: absolute;
+          top: 114px;
+          right: 42px;
+        }
+        .v-karamelli {
+          position: absolute;
+          top: 102px;
+          left: 92px;
+        }
+        .v-cta{
+            width: 150px;
+            height: 30px;
+            position: absolute;
+            bottom: 35px;
+            left: 75px;
+            background: #fff url('cta.png') no-repeat center center;
+        }
+		.product-loop{
+            -moz-animation: prodanim 10s infinite;
+            -webkit-animation: prodanim 10s infinite;
+            animation: prodanim 10s infinite;
+            -webkit-animation-iteration-count: 3;
+            -moz-animation-iteration-count: 3;
+            -moz-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+		}
+		@-moz-keyframes prodanim {
+			0%, 50%, 100% {
+		  		-moz-transform: scale(0);
+		  	}
+		  	58%,96% {
+				-moz-transform: scale(1);
+		 	}
+		}
+		@-webkit-keyframes prodanim {
+			0%, 50%, 100% {
+				-webkit-transform: scale(0);
+			}
+			58%,96%{
+				-webkit-transform: scale(1);
+			}
+		}
+		@keyframes prodanim {
+			0%, 50%, 100% {
+				transform: scale(0);
+			}
+			58%,96% {
+				transform: scale(1);
+			}
+		}
+        .v-badge {
+            position: absolute;
+            top: -93px;
+            right: 20px;
+        }
+		.badge-loop{
+            -moz-animation: badgeanim 10s infinite;
+            -webkit-animation: badgeanim 10s infinite;
+            animation: badgeanim 10s infinite;
+            -webkit-animation-iteration-count: 3;
+            -moz-animation-iteration-count: 3;
+            -moz-transform: translateY(113px);
+            -webkit-transform: translateY(113px);
+            transform: translateY(113px);
+		}
+		@-moz-keyframes badgeanim {
+			0%, 50%, 100% {
+		  		-moz-transform: translateY(0);
+		  	}
+		  	55%,96%{
+				-moz-transform: translateY(113px);
+		 	}
+		}
+		@-webkit-keyframes badgeanim {
+			0%, 50%, 100% {
+				-webkit-transform: translateY(0);
+			}
+			55%,96%{
+				-webkit-transform: translateY(113px);
+			}
+		}
+		@keyframes badgeanim {
+			0%, 50%, 100%{
+				transform: translateY(0);
+			}
+			55%,96%{
+				transform: translateY(113px);
+			}
+		}
+    </style>
+</head>
+<body>
+    <div id="v-container">
+        <img src="txt.png" alt="" class="v-txt txt-loop">
+        <img src="jauhe.png" alt="" class="v-jauhe jauhe-loop">
+        <img src="suklaa.png" alt="" class="v-suklaa product-loop">
+        <img src="kookos.png" alt="" class="v-kookos product-loop">
+        <img src="karamelli.png" alt="" class="v-karamelli product-loop">
+        <img src="kasi.png" alt="" class="v-kasi kasi-loop">
+        <div class="v-cta product-loop"></div>
+        <img src="badge.png" alt="" class="v-badge badge-loop">
+        <img src="logo.png" alt="" class="v-logo">
+        <a href="javascript:window.open(window.clickTag)" id="clickLayer"></a>
+    </div>
+</body>
+</html>

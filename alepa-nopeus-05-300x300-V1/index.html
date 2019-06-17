@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>300x300</title>
+    <meta name="ad.size" content="width=300,height=300">
+    <script type="text/javascript">
+    var clickTag = "http://www.example.com"; </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #clickLayer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            cursor: pointer;
+        }
+        #a-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            box-sizing: border-box;
+            background: url('bg.jpg') 0 0 no-repeat;
+        }
+
+        #runAnimation {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        #mattoAnimation {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .txt {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .cta {
+            position: absolute;
+            bottom: 22px;
+            left: 20px;
+            width: 141px;
+            height: 18px;
+            background: url('cta.png') 0 0 no-repeat;
+        }
+
+        .cta-arr {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 11px;
+            height: 18px;
+            background: url('cta-arr.png') 0 0 no-repeat;
+        }
+
+        .opacity {
+            opacity: 0;
+        }
+
+        .arr-bounce{
+			  -moz-animation: bounce 2s infinite;
+			  -webkit-animation: bounce 2s infinite;
+			  animation: bounce 2s infinite;
+			  -webkit-animation-iteration-count: 14;
+			  -moz-animation-iteration-count: 14;
+			  animation-delay: 1s;
+			  -webkit-animation-delay: 1s;
+			}
+			@-moz-keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+			  		-moz-transform: translateX(0);
+			  	}
+			  	40% {
+					-moz-transform: translateX(3px);
+			 	}
+			 	60% {
+					-moz-transform: translateX(5px);
+				}
+			}
+			@-webkit-keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					-webkit-transform: translateX(0);
+				}
+				40% {
+					-webkit-transform: translateX(3px);
+				}
+				60% {
+					-webkit-transform: translateX(5px);
+				}
+			}
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					transform: translateX(0);
+				}
+				40% {
+					transform: translateX(3px);
+				}
+				60% {
+					transform: translateX(5px);
+				}
+			}
+    </style>
+</head>
+<body>
+    <div id="a-container">
+        <canvas id="mattoAnimation"></canvas>
+        <canvas id="runAnimation"></canvas>
+        <div class="cta">
+            <div class="cta-arr arr-bounce"></div>
+        </div>
+        <img src="txt.png" alt="" class="txt">
+        <img src="logo.png" alt="" class="logo">
+        <a id="clickLayer" href="javascript:window.open(window.clickTag)"></a>
+    </div>
+    <script>
+        (function run () {
+			
+            var run,
+                runImage,
+                canvas;	
+            
+            var ticksTotal = 0;
+        
+            function gameLoop () {
+            
+              if (ticksTotal < 1680)
+              {
+                    window.requestAnimationFrame(gameLoop);
+                    run.update();
+                    run.render();
+              }
+              
+            }
+            
+            function sprite (options) {
+            
+                var that = {},
+                    frameIndex = 0,
+                    tickCount = 0,
+                    ticksPerFrame = options.ticksPerFrame || 0,
+                    numberOfFrames = options.numberOfFrames || 1;
+                
+                that.context = options.context;
+                that.width = options.width;
+                that.height = options.height;
+                that.image = options.image;
+                
+                that.update = function () {
+        
+                    tickCount += 1;
+                    ticksTotal++;
+
+                    if (tickCount > ticksPerFrame) {
+                       
+                        tickCount = 0;
+                        
+                        // If the current frame index is in range
+                        if (frameIndex < numberOfFrames - 1) {	
+                            // Go to the next frame
+                            frameIndex += 1;
+                        } else {
+                            frameIndex = 0;
+                        }
+                    }
+                };
+                
+                that.render = function () {
+                
+                  // Clear the canvas
+                  that.context.clearRect(0, 0, that.width, that.height);
+                  
+                  // Draw the animation
+                  that.context.drawImage(
+                    that.image,
+                    frameIndex * that.width / numberOfFrames,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height,
+                    0,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height);
+                };
+                
+                return that;
+            }
+            
+            // Get canvas
+            canvas = document.getElementById("runAnimation");
+            canvas.width = 300;
+            canvas.height = 300;
+            
+            // Create sprite sheet
+            runImage = new Image();	
+            
+            // Create sprite
+            run = sprite({
+                context: canvas.getContext("2d"),
+                width: 2695,
+                height: 300,
+                image: runImage,
+                numberOfFrames: 9,
+                ticksPerFrame: 2
+            });
+            
+            // Load sprite sheet
+            runImage.addEventListener("load", gameLoop);
+            runImage.src = "juoksu-sprite.png";
+        
+        } ());
+
+        (function matto () {
+			
+            var matto,
+                mattoImage,
+                canvas;
+                
+            var ticksTotalMatto = 0;
+        
+            function mattoLoop () {
+
+                if (ticksTotalMatto < 1680) {
+                    window.requestAnimationFrame(mattoLoop);
+                    matto.mattoUpdate();
+                    matto.mattoRender();
+                }
+            }
+            
+            function mattoSprite (options) {
+            
+                var that = {},
+                    frameIndex = 0,
+                    tickCount = 0,
+                    ticksPerFrame = options.ticksPerFrame || 0,
+                    numberOfFrames = options.numberOfFrames || 1;
+                
+                that.context = options.context;
+                that.width = options.width;
+                that.height = options.height;
+                that.image = options.image;
+                
+                that.mattoUpdate = function () {
+        
+                    tickCount += 1;
+                    ticksTotalMatto++;
+        
+                    if (tickCount > ticksPerFrame) {
+        
+                        tickCount = 0;
+                        
+                        // If the current frame index is in range
+                        if (frameIndex < numberOfFrames - 1) {	
+                            // Go to the next frame
+                            frameIndex += 1;
+                        } else {
+                            frameIndex = 0;
+                        }
+                    }
+                };
+                
+                that.mattoRender = function () {
+                
+                  // Clear the canvas
+                  that.context.clearRect(0, 0, that.width, that.height);
+                  
+                  // Draw the animation
+                  that.context.drawImage(
+                    that.image,
+                    frameIndex * that.width / numberOfFrames,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height,
+                    0,
+                    0,
+                    that.width / numberOfFrames,
+                    that.height);
+                };
+                
+                return that;
+            }
+            
+            // Get canvas
+            canvas = document.getElementById("mattoAnimation");
+            canvas.width = 300;
+            canvas.height = 300;
+            
+            // Create sprite sheet
+            mattoImage = new Image();	
+            
+            // Create sprite
+            matto = mattoSprite({
+                context: canvas.getContext("2d"),
+                width: 900,
+                height: 300,
+                image: mattoImage,
+                numberOfFrames: 3,
+                ticksPerFrame: 7
+            });
+            
+            // Load sprite sheet
+            mattoImage.addEventListener("load", mattoLoop);
+            mattoImage.src = "matto.png";
+        } ());
+    </script>
+</body>
+</html>

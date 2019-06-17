@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>300x300</title>
+    <script>
+            document.write('<script src="' + 'https://sn.sanoma.fi/js/ClicksApi.js?vr=' + Math.random() + '"><\/script>');
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #clickLayer {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            cursor: pointer;
+        }
+        #t-container {
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+            box-sizing: border-box;
+        }
+
+        .bg {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 300px;
+            height: 300px;
+            background: url('bg.jpg') 0 0 no-repeat;
+        }
+
+        .bg-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .lehti {
+            position: absolute;
+            bottom: -70px;
+            left: 14px;
+        }
+
+        .txt {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        .cta {
+            position: absolute;
+            bottom: 18px;
+            left: -385px;
+            width: 226px;
+            height: 28px;
+            background: url('cta.png') 0 0 no-repeat;
+        }
+
+        .cta-arr {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 226px;
+            height: 28px;
+            background: url('cta-arr.png') 0 0 no-repeat;
+        }
+
+        .line {
+            position: absolute;
+            bottom: 18px;
+            left: 33px;
+            width: 214px;
+            height: 2px;
+            background: #f58220;
+        }
+
+        .opacity {
+            opacity: 0;
+        }
+
+        .arr-bounce{
+			  -moz-animation: bounce 2s infinite;
+			  -webkit-animation: bounce 2s infinite;
+			  animation: bounce 2s infinite;
+			  -webkit-animation-iteration-count: 14;
+			  -moz-animation-iteration-count: 14;
+			  animation-delay: 1s;
+			  -webkit-animation-delay: 1s;
+			}
+			@-moz-keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+			  		-moz-transform: translateX(0);
+			  	}
+			  	40% {
+					-moz-transform: translateX(1px);
+			 	}
+			 	60% {
+					-moz-transform: translateX(2px);
+				}
+			}
+			@-webkit-keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					-webkit-transform: translateX(0);
+				}
+				40% {
+					-webkit-transform: translateX(1px);
+				}
+				60% {
+					-webkit-transform: translateX(2px);
+				}
+			}
+			@keyframes bounce {
+				0%, 20%, 50%, 80%, 100% {
+					transform: translateX(0);
+				}
+				40% {
+					transform: translateX(1px);
+				}
+				60% {
+					transform: translateX(2px);
+				}
+			}
+    </style>
+</head>
+<body>
+    <div id="t-container">
+        <div class="bg"></div>
+        <div class="cta">
+            <div class="cta-arr arr-bounce"></div>
+        </div>
+        <img src="lehti.png" alt="" class="lehti opacity">
+        <div class="line opacity"></div>
+        <img src="txt.png" alt="" class="txt opacity">
+        <img src="bg-bottom.jpg" alt="" class="bg-bottom">
+        <a href="javascript:void(0);" onclick="SanomaClicksApi.openClickUrl('https://tilaa.sanoma.fi/tiede-luonto?defaultAid=true&utm_source=facebook&utm_medium=markkinointi&utm_campaign=tiede_19_luonto2019&utm_content=banner_300x300'); return false;" id="clickLayer"></a>
+    </div>
+    <script>
+        function tintro() {
+            $(".txt").animate({ opacity: 1 }, 500, function() {
+                $(".cta").animate({ left: 30 }, 400, function() {
+                    $(".cta").animate({ left: 22 }, 300, function() {
+                        $(".line").animate({ opacity: 1 }, function() {
+                            $(".lehti").animate({ opacity: 1, bottom: 1 }, 300);
+                        });
+                    });
+                });
+            });
+        }
+
+        window.onload = function() {
+            setTimeout(tintro, 100);
+        }
+    </script>
+</body>
+</html>
